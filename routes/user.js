@@ -3,13 +3,11 @@
 
 
 import express from "express";
+import { loginOrSignUp } from "../controllers/user.js";
 
 const router = express.Router();
 
-router.get("/get-data", (req, res) => {
-  // RETURN SUCCESS!
-  res.json({ message: "Hello, World!" });
-})
+router.post("/login", loginOrSignUp)
 
 
 export default router;

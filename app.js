@@ -1,12 +1,13 @@
 import express from "express";
 import userRoutes from "./routes/user.js";
+import dotenv from 'dotenv';
 
 const app = express();
-
+dotenv.config();
 app.use(express.json());
 
 // ROUTES!
-app.use("/api/v1", userRoutes);
+app.use("/user", userRoutes);
 
 const start = async () => {
   // RUN SERVER!
