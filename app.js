@@ -1,5 +1,9 @@
 import express from "express";
 import userRoutes from "./routes/user.js";
+import categoryRoutes from "./routes/category.js";
+import productRoutes from "./routes/product.js";
+
+
 import dotenv from 'dotenv';
 
 const app = express();
@@ -8,6 +12,9 @@ app.use(express.json());
 
 // ROUTES!
 app.use("/user", userRoutes);
+app.use("/category", categoryRoutes);
+app.use("/product", productRoutes);
+
 
 const start = async () => {
   // RUN SERVER!

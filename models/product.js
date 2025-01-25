@@ -31,5 +31,5 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-export const Product = mongoose.model("Category", productSchema);
-Í;
+export const Product = mongoose.model("Product", productSchema);
+
