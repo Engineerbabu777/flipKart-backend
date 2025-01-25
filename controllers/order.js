@@ -1,7 +1,7 @@
 import RazorPay from "razorpay";
 import crypto from "crypto";
-import Transaction from "../models/transaction";
-import Order from "../models/order";
+import Transaction from "../models/transaction.js";
+import Order from "../models/order.js";
 
 export const createTransaction = async (req, res) => {
   try {

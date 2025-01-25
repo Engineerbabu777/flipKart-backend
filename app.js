@@ -2,7 +2,7 @@ import express from "express";
 import userRoutes from "./routes/user.js";
 import categoryRoutes from "./routes/category.js";
 import productRoutes from "./routes/product.js";
-
+import orderRoutes from "./routes/order.js";
 
 import dotenv from 'dotenv';
 
@@ -14,6 +14,8 @@ app.use(express.json());
 app.use("/user", userRoutes);
 app.use("/category", categoryRoutes);
 app.use("/product", productRoutes);
+app.use("/order", orderRoutes);
+
 
 
 const start = async () => {
