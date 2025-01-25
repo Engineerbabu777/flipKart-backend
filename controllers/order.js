@@ -106,3 +106,31 @@ export const createOrder = async (req, res) => {
       .json({ message: error.message, error: true, status: "Failed" });
   }
 };
+
+export const getOrdersByUserId = async (req, res) => {
+  try {
+    const { userid } = req.params;
+
+    const orders = await Order.find({ user: userid })
+      .populate("user", "name email")
+      .populate("items.product", "name price image_uri ar_uri")
+      .sort({ createdAt: -1 });
+
+    // IF NO ORDERS!
+    if (!orders.length) {
+      return res
+        .status(404)
+        .json({ message: "No orders found", success: false });
+    }
+
+    // RETURN ORDERS!
+    res.status(200).json({ success: true, orders });
+  } catch (error) {
+    // RETURN ERROR WITH SUCCESS!
+    return res.status(500).json({
+      message: "Failed getting Orders by user_id",
+      success: false,
+      error: error.message,
+    });
+  }
+};
