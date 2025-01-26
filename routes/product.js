@@ -7,7 +7,7 @@ import { getProductsByCategory } from "../controllers/products.js";
 
 const router = express.Router();
 
-router.get("/:category", getProductsByCategory)
+router.get("/:categoryId", getProductsByCategory)
 
 
 export default router;
